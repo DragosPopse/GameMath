@@ -5,9 +5,47 @@
 
 namespace gm
 {
-	template <typename T, size_t SIZE>
+	template <typename T, size_t N>
 	struct Vec
 	{
-		
+
 	};
+
+
+	namespace meta
+	{
+		template <typename T>
+		struct is_vec : std::false_type
+		{
+		};
+
+
+		template <typename T, size_t N>
+		struct is_vec<Vec<T, N>> : std::true_type
+		{
+		};
+	}
+
+
+	template <typename T, size_t N>
+	T magnitude(const Vec<T, N>& v)
+	{
+		return sqrt(v * v);
+	}
+
+
+	template <typename T, size_t N>
+	T sqrMagnitude(const Vec<T, N>& v)
+	{
+		return v * v;
+	}
+
+
+	template <typename T, size_t N>
+	Vec<T, N> normalize(const Vec<T, N>& v)
+	{
+		return v / magnitude(v);
+	}
+
+
 }

@@ -14,11 +14,43 @@ namespace gm
 		static ElementType  m_elements[2];
 
 	public:
-		T x;
-		T y;
+		T x = T(0);
+		T y = T(0);
 
 
 	public:
+		Vec() = default;
+		Vec(const Vec& other) = default;
+		
+
+		Vec operator*(T scalar)
+		{
+			return { x * scalar, y * scalar };
+		}
+
+
+		Vec operator/(T scalar)
+		{
+			return { x / scalar, y / scalar };
+		}
+
+
+		/*
+			Calculates the dot product between 2 vectors
+		*/
+		T operator*(const Vec& other)
+		{
+			return x * other.x + y * other.y;
+		}
+
+
+
+		Vec operator+(Vec other)
+		{
+			return { x + other.x, y + other.y };
+		}
+		
+
 		T& operator[](size_t index)
 		{
 			return this->*m_elements[index];
