@@ -1,5 +1,6 @@
 #include <iostream>
 #include <gmath/vec.hpp>
+#include <gmath/mat.hpp>
 
 
 int main()
