@@ -13,8 +13,8 @@ namespace gm
 	template <typename T>
 	struct Mat<T, 4, 4>
 	{
-		static constexpr ROWS = 4;
-		static constexpr COLUMNS = 4;
+		static constexpr size_t ROWS = 4;
+		static constexpr size_t COLUMNS = 4;
 
 		using RowType = Vec4<T>;
 		using VecType = Vec4<T>;
