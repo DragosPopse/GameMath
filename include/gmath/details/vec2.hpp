@@ -7,11 +7,11 @@ namespace gm
 	template <typename T>
 	struct Vec<T, 2>
 	{
-	private:
-		using ElementType = T Vec::*;
 		static constexpr size_t SIZE = 2;
-
-		static ElementType  m_elements[2];
+	private:
+		using MemberType = T Vec::*;
+		
+		static MemberType m_elements[2];
 
 	public:
 		T x = T(0);
@@ -19,17 +19,26 @@ namespace gm
 
 
 	public:
-		Vec() = default;
-		Vec(const Vec& other) = default;
+		constexpr Vec() = default;
+
+
+		constexpr Vec(const Vec& other) = default;
+
+
+		constexpr Vec(T theX, T theY) :
+			x(theX),
+			y(theY)
+		{
+		}
 		
 
-		Vec operator*(T scalar)
+		constexpr Vec operator*(T scalar)
 		{
 			return { x * scalar, y * scalar };
 		}
 
 
-		Vec operator/(T scalar)
+		constexpr Vec operator/(T scalar)
 		{
 			return { x / scalar, y / scalar };
 		}
@@ -38,14 +47,13 @@ namespace gm
 		/*
 			Calculates the dot product between 2 vectors
 		*/
-		T operator*(const Vec& other)
+		constexpr T operator*(const Vec& other)
 		{
 			return x * other.x + y * other.y;
 		}
 
 
-
-		Vec operator+(Vec other)
+		constexpr Vec operator+(Vec other)
 		{
 			return { x + other.x, y + other.y };
 		}
@@ -65,7 +73,7 @@ namespace gm
 
 
 	template <typename T>
-	typename Vec<T, 2>::ElementType Vec<T, 2>::m_elements[2] = {
+	typename Vec<T, 2>::MemberType Vec<T, 2>::m_elements[2] = {
 		&Vec<T, 2>::x,
 		&Vec<T, 2>::y
 	};

@@ -28,6 +28,13 @@ namespace gm
 
 
 	template <typename T, size_t N>
+	Vec<T, N> operator*(T scalar, const Vec<T, N>& v)
+	{
+		return v * scalar;
+	}
+
+
+	template <typename T, size_t N>
 	T magnitude(const Vec<T, N>& v)
 	{
 		return sqrt(v * v);
@@ -46,6 +53,4 @@ namespace gm
 	{
 		return v / magnitude(v);
 	}
-
-
 }
