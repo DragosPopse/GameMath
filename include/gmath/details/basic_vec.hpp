@@ -42,7 +42,7 @@ namespace gm
 
 
 	template <typename T, size_t N>
-	T sqrMagnitude(const Vec<T, N>& v)
+	T sqr_magnitude(const Vec<T, N>& v)
 	{
 		return v * v;
 	}

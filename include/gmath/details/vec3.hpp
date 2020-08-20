@@ -35,13 +35,13 @@ namespace gm
 		}
 
 
-		constexpr Vec operator*(T scalar)
+		constexpr Vec operator*(T scalar) const
 		{
 			return { x * scalar, y * scalar, z * scalar };
 		}
 		 
 
-		constexpr Vec operator/(T scalar)
+		constexpr Vec operator/(T scalar) const
 		{
 			return { x / scalar, y / scalar, z / scalar };
 		}
@@ -50,13 +50,13 @@ namespace gm
 		/*
 			Calculates the dot product between 2 vectors
 		*/
-		constexpr Vec operator*(const Vec& other)
+		constexpr Vec operator*(const Vec& other) const
 		{
 			return { x * other.x, y * other.y, z * other.z };
 		}
 
 
-		constexpr Vec operator+(const Vec& other)
+		constexpr Vec operator+(const Vec& other) const
 		{
 			return { x + other.x, y + other.y, z + other.z };
 		}
