@@ -50,9 +50,9 @@ namespace gm
 		/*
 			Calculates the dot product between 2 vectors
 		*/
-		constexpr Vec operator*(const Vec& other) const
+		constexpr T operator*(const Vec& other) const
 		{
-			return { x * other.x, y * other.y, z * other.z };
+			return x * other.x + y * other.y + z * other.z;
 		}
 
 

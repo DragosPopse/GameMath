@@ -38,22 +38,24 @@ namespace gm
 	Mat4<T> rotate(const Mat4<T>& m, std::conditional_t<std::is_floating_point_v<T>, T, float> radians, const Vec3<T>& axis)
 	{
 		Mat4<T> result(1.f);
-		auto s = sin(radians);
-		auto c = cos(radians);
-		auto val = 1 - c; //to be used after benchmark
+		const auto s = sin(radians);
+		const auto c = cos(radians);
+		const auto val = 1 - c;
+		
+		const auto axisn = normalize(axis);
 
 
-		result[0][0] = c + axis.x * axis.x * (1 - c);
-		result[0][1] = axis.x * axis.y * (1 - c) - axis.z * s;
-		result[0][2] = axis.x * axis.z * (1 - c) + axis.y * s;
+		result[0][0] = c + axisn.x * axisn.x * (1 - c);
+		result[0][1] = axisn.x * axisn.y * (1 - c) - axisn.z * s;
+		result[0][2] = axisn.x * axisn.z * (1 - c) + axisn.y * s;
 
-		result[1][0] = axis.y * axis.x * (1 - c) + axis.z * s;
-		result[1][1] = c + axis.y * axis.y * (1 - c);
-		result[1][2] = axis.y * axis.z * (1 - c) - axis.x * s;
+		result[1][0] = axisn.y * axisn.x * (1 - c) + axisn.z * s;
+		result[1][1] = c + axisn.y * axisn.y * (1 - c);
+		result[1][2] = axisn.y * axisn.z * (1 - c) - axisn.x * s;
 
-		result[2][0] = axis.z * axis.x * (1 - c) - axis.y * s;
-		result[2][1] = axis.z * axis.y * (1 - c) + axis.x * s;
-		result[2][2] = c = axis.z * axis.z * (1 - c);
+		result[2][0] = axisn.z * axisn.x * (1 - c) - axisn.y * s;
+		result[2][1] = axisn.z * axisn.y * (1 - c) + axisn.x * s;
+		result[2][2] = c + axisn.z * axisn.z * (1 - c);
 
 		return m * result;
 	}
@@ -64,7 +66,7 @@ namespace gm
 	{
 		Mat4<T> result;
 
-		T fov = 1 / tan(fovTheta / T(2));
+		T fov = T(1) / tan(fovTheta / T(2));
 		T q = zFar / (zFar - zNear);
 
 		result[0][0] = aspectRatio * fov;

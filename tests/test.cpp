@@ -21,7 +21,10 @@ void PrintMat(const MatType& m)
 int main()
 {
 	gm::Vec2f vec;
+	gm::Vec3f v;
 	vec[0] = 32;
+
+	normalize(v);
 
 	PrintMat(gm::translate(gm::Mat4f(1.f), { 2.f, 3.f, 4.f }));
 
