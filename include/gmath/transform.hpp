@@ -55,6 +55,24 @@ namespace gm
 		result[2][1] = axis.z * axis.y * (1 - c) + axis.x * s;
 		result[2][2] = c = axis.z * axis.z * (1 - c);
 
+		return m * result;
+	}
+
+
+	template <typename T>
+	Mat4<T> perspective(T fovTheta, T aspectRatio, T zNear, T zFar)
+	{
+		Mat4<T> result;
+
+		T fov = 1 / tan(fovTheta / T(2));
+		T q = zFar / (zFar - zNear);
+
+		result[0][0] = aspectRatio * fov;
+		result[1][1] = fov;
+		result[2][2] = q;
+		result[3][2] = -zNear * q;
+		result[2][3] = T(1);
+
 		return result;
 	}
 }
