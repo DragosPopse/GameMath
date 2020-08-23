@@ -53,9 +53,15 @@ namespace gm
 		}
 
 
-		constexpr Vec operator+(Vec other) const
+		constexpr Vec operator+(const Vec& other) const
 		{
 			return { x + other.x, y + other.y };
+		}
+
+
+		constexpr Vec operator-(const Vec& other) const
+		{
+			return { x - other.x, y - other.y };
 		}
 		
 

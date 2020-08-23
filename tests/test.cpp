@@ -24,6 +24,8 @@ int main()
 	gm::Vec3f v;
 	vec[0] = 32;
 
+	v - v;
+
 	normalize(v);
 
 	PrintMat(gm::translate(gm::Mat4f(1.f), { 2.f, 3.f, 4.f }));

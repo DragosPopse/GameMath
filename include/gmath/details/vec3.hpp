@@ -62,6 +62,12 @@ namespace gm
 		}
 
 
+		constexpr Vec operator-(const Vec& other) const
+		{
+			return { x - other.x, y - other.y, z - other.z };
+		}
+
+
 		T& operator[](size_t index)
 		{
 			return this->*m_elements[index];
@@ -96,9 +102,9 @@ namespace gm
 	constexpr Vec3<T> cross(const Vec3<T>& a, const Vec3<T>& b)
 	{
 		return {
-			result.x = a.y * b.z - a.z * b.y,
-			result.y = a.z * b.x - a.x * b.z,
-			result.z = a.x * b.y - a.y * b.x
+			a.y * b.z - a.z * b.y,
+			a.z * b.x - a.x * b.z,
+			a.x * b.y - a.y * b.x
 		};
 	}
 }
