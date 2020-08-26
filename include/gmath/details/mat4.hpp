@@ -230,6 +230,12 @@ namespace gm
 		{
 			return m_elements[index];
 		}
+
+
+		const T* data() const
+		{
+			return &m_elements[0][0];
+		}
 	};
 
 
