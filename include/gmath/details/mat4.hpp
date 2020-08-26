@@ -234,7 +234,7 @@ namespace gm
 
 		const T* data() const
 		{
-			return &m_elements[0][0];
+			return &m_elements[0].x;
 		}
 	};
 

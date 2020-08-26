@@ -27,6 +27,9 @@ int main()
 	v - v;
 
 	normalize(v);
+	gm::Mat4f m;
+	std::cout << m.data();
+	m[0][0] = 2;
 
 	PrintMat(gm::translate(gm::Mat4f(1.f), { 2.f, 3.f, 4.f }));
 
