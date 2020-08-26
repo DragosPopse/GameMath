@@ -30,7 +30,10 @@ int main()
 	gm::Mat4f m;
 	std::cout << m.data();
 	m[0][0] = 2;
+	if (v == v)
+	{
 
+	}
 	PrintMat(gm::translate(gm::Mat4f(1.f), { 2.f, 3.f, 4.f }));
 
 	return 0;

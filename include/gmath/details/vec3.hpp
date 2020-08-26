@@ -80,13 +80,13 @@ namespace gm
 		}
 
 
-		bool operator==(const Vec3& other) const
+		bool operator==(const Vec& other) const
 		{
 			return x == other.x && y == other.y && z == other.z;
 		}
 
 
-		bool operator!=(const Vec3& other) const
+		bool operator!=(const Vec& other) const
 		{
 			return !(*this == other);
 		}
