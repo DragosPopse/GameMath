@@ -21,20 +21,26 @@ void PrintMat(const MatType& m)
 int main()
 {
 	gm::Vec2f vec;
-	gm::Vec3f v;
+	gm::Vec4f v;
 	vec[0] = 32;
 
 	v - v;
 
 	normalize(v);
 	gm::Mat4f m;
-	std::cout << m.data();
 	m[0][0] = 2;
 	if (v == v)
 	{
 
 	}
-	PrintMat(gm::translate(gm::Mat4f(1.f), { 2.f, 3.f, 4.f }));
+	PrintMat(gm::Mat4f(
+		{ {
+			{1.f, 2.f, 3.f, 4.f},
+			{0.f, 0.f, 0.f, 0.f},
+			{0.f, 0.f, 0.f, 0.f},
+			{0.f, 0.f, 0.f, 0.f}
+		} }
+	));
 
 	return 0;
 }

@@ -18,14 +18,21 @@ namespace gm
 
 		using RowType = Vec4<T>;
 		using VecType = Vec4<T>;
+		using ElementsType = std::array<RowType, COLUMNS>;
 
-		std::array<RowType, COLUMNS> m_elements;
+		ElementsType m_elements;
 
 	public:
 		constexpr Mat() = default;
 
 		
 		constexpr Mat(const Mat& other) = default;
+
+
+		constexpr Mat(const ElementsType& elements) :
+			m_elements(elements)
+		{
+		}
 
 
 		explicit Mat(T scalar)
