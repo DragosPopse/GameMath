@@ -78,6 +78,18 @@ namespace gm
 		{
 			return this->*m_elements[index];
 		}
+
+
+		bool operator==(const Vec3& other) const
+		{
+			return x == other.x && y == other.y && z == other.z;
+		}
+
+
+		bool operator!=(const Vec3& other) const
+		{
+			return !(*this == other);
+		}
 	};
 
 
