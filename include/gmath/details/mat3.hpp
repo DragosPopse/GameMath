@@ -4,7 +4,7 @@
 
 #include <array>
 
-#include <gmath/details/vec4.hpp>
+#include <gmath/details/vec3.hpp>
 
 
 
