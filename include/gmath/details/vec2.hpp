@@ -63,6 +63,12 @@ namespace gm
 		{
 			return { x - other.x, y - other.y };
 		}
+
+
+		constexpr Vec operator-() const
+		{
+			return { -x, -y };
+		}
 		
 
 		T& operator[](size_t index)

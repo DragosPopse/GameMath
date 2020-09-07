@@ -1,3 +1,7 @@
+/*
+	API design mostly taken from GLM
+*/
+
 #pragma once
 
 #include <gmath/details/basic_mat.hpp>

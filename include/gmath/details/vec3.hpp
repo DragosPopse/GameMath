@@ -68,6 +68,12 @@ namespace gm
 		}
 
 
+		constexpr Vec operator-() const
+		{
+			return { -x, -y, -z };
+		}
+
+
 		T& operator[](size_t index)
 		{
 			return this->*m_elements[index];

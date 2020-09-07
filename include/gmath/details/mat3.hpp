@@ -1,3 +1,7 @@
+/*
+	API design mostly taken from GLM
+*/
+
 #pragma once
 
 #include <gmath/details/basic_mat.hpp>
@@ -83,10 +87,6 @@ namespace gm
 				m_elements[0].x * other[0].z +
 				m_elements[0].y * other[1].z +
 				m_elements[0].z * other[2].z;
-			result[0].w =
-				m_elements[0].x * other[0].w +
-				m_elements[0].y * other[1].w +
-				m_elements[0].z * other[2].w;
 
 
 			result[1].x =
@@ -101,10 +101,6 @@ namespace gm
 				m_elements[1].x * other[0].z +
 				m_elements[1].y * other[1].z +
 				m_elements[1].z * other[2].z;
-			result[1].w =
-				m_elements[1].x * other[0].w +
-				m_elements[1].y * other[1].w +
-				m_elements[1].z * other[2].w;
 
 
 			result[2].x =
@@ -119,10 +115,6 @@ namespace gm
 				m_elements[2].x * other[0].z +
 				m_elements[2].y * other[1].z +
 				m_elements[2].z * other[2].z;
-			result[2].w =
-				m_elements[2].x * other[0].w +
-				m_elements[2].y * other[1].w +
-				m_elements[2].z * other[2].w;
 
 
 			return result;
