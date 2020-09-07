@@ -77,4 +77,51 @@ namespace gm
 
 		return result;
 	}
+
+
+	/*
+		Now do the same for Mat3
+	*/
+
+
+	template <typename T>
+	Mat3<T> translate(const Mat3<T>& m, const Vec2<T>& translation)
+	{
+		Mat3<T> result(T(1));
+		result[0].z = translation.x;
+		result[1].z = translation.y;
+		return  m * result;
+	}
+
+
+	template <typename T>
+	Mat3<T> scale(const Mat3<T>& m, const Vec2<T>& scaling)
+	{
+		Mat3<T> result;
+		result[0][0] = scaling[0];
+		result[1][1] = scaling[1];
+		result[2][2] = T(1);
+
+		return m * result;
+	}
+
+
+	/*
+		Rotate around z axis (standard 2D rotation)
+	*/
+	template <typename T>
+	Mat3<T> rotate(const Mat3<T>& m, std::conditional_t<std::is_floating_point_v<T>, T, float> radians)
+	{
+		Mat3<T> result(1.f);
+		const auto s = sin(radians);
+		const auto c = cos(radians);
+	
+		result[0][0] = c;
+		result[0][1] = -s;
+
+		result[1][0] = s;
+		result[1][1] = c;
+
+		return m * result;
+	}
 }
