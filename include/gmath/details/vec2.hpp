@@ -45,11 +45,11 @@ namespace gm
 
 
 		/*
-			Calculates the dot product between 2 vectors
+			Calculates the hadamard product between 2 vectors
 		*/
-		constexpr T operator*(const Vec& other) const
+		constexpr Vec operator*(const Vec& other) const
 		{
-			return x * other.x + y * other.y;
+			return { x * other.x, y * other.y };
 		}
 
 

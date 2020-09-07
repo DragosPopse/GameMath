@@ -25,7 +25,8 @@ int main()
 	vec[0] = 32;
 
 	v - v;
-
+	gm::magnitude(v);
+	v * v;
 	normalize(v);
 	gm::Mat4f m;
 	m[0][0] = 2;
